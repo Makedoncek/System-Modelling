@@ -84,7 +84,7 @@ def get_intervals(array, num_of_intervals):
 
     return entries_list
 
-# Обчислює очікувані значення для кожного інтервалу
+
 def pull_intervals_from_list(entries, num_of_intervals):
     interval_list = list()
     for i in range(num_of_intervals):
@@ -113,7 +113,7 @@ def plot_histogram(entries_list, num_of_intervals):
     plt.show()
 
 
-# Виконує перевірку критерієм χ², щоб порівняти очікувані та спостережувані значення
+
 def chi_2_tool(expected_list, observed_list, num_of_intervals, function_name):
     observed_chi_squared = 0
     for i in range(num_of_intervals):
