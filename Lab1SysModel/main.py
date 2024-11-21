@@ -4,7 +4,6 @@ from gen3 import Generator3
 
 num_of_values = 10000
 bins = 20
-num_of_test = 2
 list_of_lambda = [0.5, 1, 2]
 
 for lambda_val in list_of_lambda:
