@@ -12,7 +12,7 @@ processor_1.add_next_element(processor_2)
 processor_1.add_next_element(processor_3)
 processor_2.add_next_element(processor_3)
 
-processor_2.set_reverse_route(processor_1, 0.3)
+processor_2.set_reverse_route(processor_1, 0.33)
 
 processor_1.max_queue = 5
 processor_2.max_queue = 8
