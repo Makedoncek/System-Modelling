@@ -32,7 +32,7 @@ class Model:
                 for i, tnext_device in enumerate(self.event.tnext_devices):
                     if tnext_device == self.tcurr:
                         self.event.out_act()
-                        break
+
             else:
                 self.event.out_act()
 
