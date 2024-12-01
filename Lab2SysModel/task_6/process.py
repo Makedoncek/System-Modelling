@@ -65,7 +65,7 @@ class Process(Element):
         return self.mean_queue / total_time if total_time > 0 else 0
 
     def get_failure_probability(self):
-        return self.failure / self.processed if self.processed > 0 else 0
+        return self.failure / (self.failure + self.processed)
 
     def has_pending_events(self):
         return self.queue > 0 or any(state == 1 for state in self.devices_state)
