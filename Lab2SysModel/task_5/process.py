@@ -41,9 +41,6 @@ class Process(Element):
         if self.next_element:
             self.next_element.in_act()
 
-    def has_pending_events(self):
-        return self.queue > 0 or any(state == 1 for state in self.devices_state)
-
     def print_info(self):
         super().print_info()
         print(f'queue: {self.queue}, failure: {self.failure}, devices: {self.devices_state}')

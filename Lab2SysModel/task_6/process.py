@@ -67,6 +67,5 @@ class Process(Element):
     def get_failure_probability(self):
         return self.failure / (self.failure + self.processed)
 
-    def has_pending_events(self):
-        return self.queue > 0 or any(state == 1 for state in self.devices_state)
+
 
