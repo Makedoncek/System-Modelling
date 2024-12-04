@@ -52,4 +52,4 @@ class Process(Element):
         return self.mean_queue / total_time if total_time > 0 else 0
 
     def get_failure_probability(self):
-        return self.failure / (self.failure + self.processed)
+        return self.failure / (self.failure + self.processed) if (self.failure + self.processed) > 0 else 0
