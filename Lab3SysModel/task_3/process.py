@@ -37,21 +37,22 @@ class ProcessHospital(ElementHospital):
 
         # перевіряємо чи вільний пристрій
         free_channels = self.get_free_channels()
-        for i in free_channels:
-            # позначаємо що пристрій зайнятий
-            self.state[i] = 1
-            # встановлюємо коли пристрій буде вільним
-            self.t_next[i] = self.t_curr + super().get_delay()
-            self.types[i] = self.next_type_element
-            self.t_starts[i] = t_start
-            break
+        if len(free_channels) > 0:
+            for i in free_channels:
+                # позначаємо що пристрій зайнятий
+                self.state[i] = 1
+                # встановлюємо коли пристрій буде вільним
+                self.t_next[i] = self.t_curr + super().get_delay()
+                self.types[i] = self.next_type_element
+                self.t_starts[i] = t_start
+                break
         else:
             if self.queue < self.max_queue:
                 self.queue += 1
                 self.queue_types.append(self.next_type_element)
                 self.t_starts_queue.append(t_start)
                 if self.queue > self.max_observed_queue:
-                    self.max_obs_queue_length = self.queue
+                    self.max_observed_queue = self.queue
             else:
                 self.failure += 1
 
@@ -81,7 +82,7 @@ class ProcessHospital(ElementHospital):
                 self.types[i] = self.next_type_element
                 self.t_starts[i] = self.t_starts_queue.pop(prior_index)
             if self.next_element is not None:
-                self.next_type_element = 1 if self.name == 'FOLLOWING_TO_THE_RECEPTION' else prev_next_type_element
+                self.next_type_element = 1 if self.name == 'FOLLOWING_TO_THE_RECEPTION' else prev_next_type_element #переведення пацієнта з типу 2 до типу 1
 
                 #                 print('next_type_element:', self.next_type_element)
                 if self.required_path is None:
@@ -111,4 +112,4 @@ class ProcessHospital(ElementHospital):
         print(f'types of elements={self.types}')
 
     def calculate(self, delta):
-        self.mean_queue_length = + delta * self.queue
+        self.mean_queue += delta * self.queue

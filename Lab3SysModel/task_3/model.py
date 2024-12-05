@@ -60,8 +60,7 @@ class ModelHospital(Model):
                     global_mean_interval_between_arriving_to_the_lab = e.delta_t_following_to_the_lab_reception / e.quantity
 
                 if e.name == 'FOLLOWING_TO_THE_RECEPTION':
-                    print(
-                        f'Mean_time_finishing for type 2 = {e.delta_t_finished2_new / e.type2_cnt_new if e.type2_cnt_new != 0 else np.inf}')
+                    print(f'Mean_time_finishing for type 2 = {e.delta_t_finished2_new / e.type2_cnt_new if e.type2_cnt_new != 0 else np.inf}')
 
             elif isinstance(e, DisposeHospital):
                 global_mean_time_finishing_accumulator += e.delta_t_finished1 + e.delta_t_finished2 + e.delta_t_finished3
