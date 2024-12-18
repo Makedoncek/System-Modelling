@@ -17,7 +17,7 @@ def analyze_theoretical(create: Element, model: Model, modeling_time: int):
 
 def analyze(func):
     modeling_time = 1000
-    time_to_test = 3
+    time_to_test = 5
     elems_to_test = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
     # elems_to_test = [10, 20]
     analytic_time = []
