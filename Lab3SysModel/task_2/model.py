@@ -9,7 +9,6 @@ class ModelBank(Model):
         self.queue_move = 0
         self.time = 0
         self.balancing = balancing
-        self.all_clients, self.out_clients = 0, 0
         self.average_cnt_client_in_bank = 0
 
     def calc_average_cnt_client_in_bank(self, delta):

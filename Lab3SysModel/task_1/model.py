@@ -65,7 +65,7 @@ class Model:
 
                 failure_probability = e.failure / (e.quantity + e.failure) if (e.quantity + e.failure) != 0 else 0
 
-                # розрахунок середнього завантаження пристрою
+
                 mean_load = e.mean_load / self.t_curr
 
                 global_mean_queue_length_accumulator += mean_queue_length

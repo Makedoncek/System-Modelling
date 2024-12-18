@@ -19,7 +19,7 @@ class ModelHospital(Model):
                     self.t_next = t_next_val
                     self.event = e.id_el
 
-            # обраховуємо статистики
+
             for e in self.list:
                 e.calculate(self.t_next - self.t_curr)
 
@@ -31,8 +31,7 @@ class ModelHospital(Model):
             if len(self.list) > self.event:
                 self.list[self.event].out_act()
 
-            # Щоб зменшити обсяг обчислень, введемо також здійснення відповідної події для всіх елементів,
-            # час наступної події яких співпадає з поточним моментом часу
+            
             for e in self.list:
                 if self.t_curr in e.t_next:
                     e.out_act()

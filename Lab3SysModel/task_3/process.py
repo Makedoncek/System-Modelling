@@ -63,7 +63,7 @@ class ProcessHospital(ElementHospital):
         current_channels = self.get_current_channel()
 
         for i in current_channels:
-            # позначаємо, що елемент вільний
+            # позначаємо, що канал вільний
             self.t_next[i] = np.inf
             self.state[i] = 0
             prev_next_type_element = self.types[i]

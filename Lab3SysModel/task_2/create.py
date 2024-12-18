@@ -8,7 +8,7 @@ class Create(Element):
     def out_act(self):
         # виконуємо збільшення лічильника кількості
         super().out_act()
-        # встановлюємо коли пристрій буде вільним
+
         self.t_next[0] = self.t_curr + super().get_delay()
 
         p1 = self.next_element[0]

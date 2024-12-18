@@ -56,12 +56,16 @@ def base_model(p1):
 def main():
     continue_test = "Press Enter to continue..."
     simple_model()
+    print("Simple model Results")
     input(continue_test)
     channel_model()
+    print("Channel model Results")
     input(continue_test)
     probability_model()
+    print("Probability model Results")
     input(continue_test)
     priority_model()
+    print("Priority model Results")
 
 
 if __name__ == "__main__":
